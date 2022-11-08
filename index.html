@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <div id="app">
+        <div class="title"><h1>{{appName}}</h1></div>
+
+        <div>
+            <div class="burgersContainer">
+                <div class="madeBurger">
+                    <div><h3>Prepared Burger</h3></div>
+                    <div class="fullBurger">
+                        <div :style="{zIndex:100-index}" class="burgerPartWrapper" v-for="(part,index) in madeBurger">
+                            <div class="burgerPart">
+                                <img :src="getBurgerPartById(part).image" :alt="getBurgerPartById(part).name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="orderedBurger">
+                    <div><h3>Ordered Burger</h3></div>
+                    <div class="fullBurger">
+                        <div :style="{zIndex:100-index}" class="burgerPartWrapper" v-for="(part,index) in orderedBurger">
+                            <div class="burgerPart">
+                                <img :src="getBurgerPartById(part).image" :alt="getBurgerPartById(part).name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="score">
+                <div><h2>Score: {{score}}</h2></div>
+            </div>
+            <div v-for="(part,index) in allParts">
+                <div @click="addBurgerPart(index)" class="selector">
+                    <img :src="part.image" :alt="part.name">
+                    <div>{{part.name}}</div>
+                </div>
+                
+            </div>
+
+            <div class="cool" v-if="showCool">
+                <img src="./images/cool.gif" alt="cool">
+            </div>
+
+            <div class="lost" v-if="showLost">
+                <img src="./images/over.gif" alt="cool">
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./src/index.js"></script>
+
+</body>
+</html>
