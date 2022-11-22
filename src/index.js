@@ -8,7 +8,7 @@ const app = Vue.createApp(
                 showLost: false,
                 burgarParts: [],
                 madeBurger: [],
-                orderedBurger: [0,2,4,6,5,2,7,2,1],
+                orderedBurger: [0,2,6,2,1],
                 allParts: [
                     {
                         name: "Bun Top",
